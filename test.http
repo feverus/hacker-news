@@ -1,0 +1,23 @@
+
+GET https://hacker-news.firebaseio.com/v0/newstories.json
+
+
+###
+GET https://hacker-news.firebaseio.com/v0/item/35059759.json
+
+
+###
+
+{
+  "by": "pungme",
+  "descendants": 1,
+  "id": 35058468,
+  "kids": [
+    35058469
+  ],
+  "score": 1,
+  "time": 1678211130,
+  "title": "Crypto Widget Toolkit",
+  "type": "story",
+  "url": "https://apps.apple.com/de/app/crypto-widget-toolkit/id1662163315?l=en"
+}
