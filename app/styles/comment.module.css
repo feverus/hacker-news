@@ -1,0 +1,23 @@
+.comment {
+  background-color: transparent;
+  border: 3px solid;
+  border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, rgb(0, 99, 49), rgba(0, 0, 0, 0) 90%);
+  border-image-slice: 1;
+}
+.comment.commentLevel_0 {
+  margin-left: 0px;
+}
+.comment.commentLevel_1 {
+  margin-left: 20px;
+}
+.comment.commentLevel_2 {
+  margin-left: 40px;
+}
+.comment.commentLevel_3 {
+  margin-left: 60px;
+}
+.comment.commentLevel_4 {
+  margin-left: 80px;
+}
+
+/*# sourceMappingURL=comment.module.css.map */

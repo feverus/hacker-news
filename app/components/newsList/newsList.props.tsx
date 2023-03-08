@@ -1,6 +1,6 @@
 import { NewsItem } from '~/interfaces'
 
-export type NewsList = (newsItems: NewsItem[]) => [
+export type UseNewsList = (newsItems: NewsItem[]) => [
     state: {
         newsItems: NewsItem[],
     },

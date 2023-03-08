@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { NewsList } from "./newsList.props"
+import { UseNewsList } from "./newsList.props"
 import { getNewsItems, getNewsList } from "~/api"
 import * as dotenv from 'dotenv'
 
-const useNewsList:NewsList = (newsItems) => {
+const useNewsList:UseNewsList = (newsItems) => {
     const [items, setItems] = useState(newsItems)    
 
     const updateIds = async () => {

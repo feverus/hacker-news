@@ -3,7 +3,7 @@ GET https://hacker-news.firebaseio.com/v0/newstories.json
 
 
 ###
-GET https://hacker-news.firebaseio.com/v0/item/35059759.json
+GET https://hacker-news.firebaseio.com/v0/item/35058469.json
 
 
 ###
@@ -20,4 +20,12 @@ GET https://hacker-news.firebaseio.com/v0/item/35059759.json
   "title": "Crypto Widget Toolkit",
   "type": "story",
   "url": "https://apps.apple.com/de/app/crypto-widget-toolkit/id1662163315?l=en"
+}
+{
+  "by": "pungme",
+  "id": 35058469,
+  "parent": 35058468,
+  "text": "Hey all :-)<p>So I was searching for a gas fee widget on my iPhone, but couldn&#x27;t find one that displayed the information I wanted in the way I wanted it. So I decided to create my own widget and ended up adding a bunch of cool metrics like active addresses, total fees, and transaction count. I would love to hear what you all think!",
+  "time": 1678211130,
+  "type": "comment"
 }
