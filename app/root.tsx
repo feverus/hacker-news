@@ -14,6 +14,20 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
+import main from "~/styles/main.css"
+import header from "~/styles/header.css"
+import newsList from "~/styles/newsList.css"
+import comment from "~/styles/comment.css"
+
+export function links() {
+	return [
+	  { rel: "stylesheet", href: main, },
+	  { rel: "stylesheet", href: header, },
+	  { rel: "stylesheet", href: newsList, },
+	  { rel: "stylesheet", href: comment, },
+	]
+}
+
 export default function App() {
   return (
     <html lang="ru">
@@ -28,5 +42,5 @@ export default function App() {
         <LiveReload />
       </body>
     </html>
-  );
+  )
 }

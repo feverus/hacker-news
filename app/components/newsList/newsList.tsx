@@ -1,24 +1,21 @@
 import useNewsList from './newsList.service'
-import C from './newsList.module.scss'
 import { NewsItem } from '~/interfaces'
-import { Link } from "@remix-run/react";
+import { setStore } from 'store/setStore'
+import { NewsItemBlock } from './newsItemBlock'
 
 export function NewsList(props: {newsItems: NewsItem[]}) {
 	const [state, api] = useNewsList(props.newsItems)
 	console.log(state)
+	console.log(setStore)
 
 	return (
 		<>
-		<button onClick={api.updateIds}>
-			Обновить
-		</button>
 		{state.newsItems.map((newstorie, index) => { 
 			return newstorie &&  
-				<div key = {newstorie.id}>
-					<Link to={newstorie.id.toString()} >{index+' '+newstorie.title+' '+newstorie.descendants}</Link>
-				</div>
+				NewsItemBlock(newstorie, index)
 			}
 		)}
 		</>
 	)
 }
+

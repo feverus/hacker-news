@@ -7,7 +7,9 @@ export type NewsItem = {
 	"time": number,
 	"title": string,
 	"type": string,
-	"url": string
+	"url": string,
+	"deleted"?: boolean,
+	"dead"?: boolean,	
 }
 export type CommentItem = {
 	"by": string,
@@ -17,4 +19,6 @@ export type CommentItem = {
 	"text": string,
 	"time": number,
 	"type": string,
+	"deleted"?: boolean,
+	"dead"?: boolean,	
 }

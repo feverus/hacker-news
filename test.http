@@ -3,7 +3,7 @@ GET https://hacker-news.firebaseio.com/v0/newstories.json
 
 
 ###
-GET https://hacker-news.firebaseio.com/v0/item/35058469.json
+GET https://hacker-news.firebaseio.com/v0/item/35082038.json
 
 
 ###

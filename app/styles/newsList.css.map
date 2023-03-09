@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["global.scss","newsList.scss"],"names":[],"mappings":"AAOA;EACI,kBANU;EAOV;EACA;EACA;EACA;EACA;EACA;;;ACZJ;EACI;EACA,ODJQ;;;ACMZ;EAEI;EACA;EACA;EACA;EACA;;AACA;EACI;EACA;;AAEJ;EACI;EACA;EACA;EACA;;AACA;EAAc;;AACd;EAAe;;AACf;EAAa;;AAEjB;EACI;EACA;EACA;EACA;EACA,OD1BI;;AC2BJ;EACI,OD7BE","file":"newsList.css"}

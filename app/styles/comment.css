@@ -1,0 +1,62 @@
+.item, .comment {
+  background-color: #fffff2;
+  box-shadow: 10px 10px 0px 0px #30501c;
+  border-radius: 10px;
+  border: 1px solid rgba(238, 238, 238, 0.6274509804);
+  margin: 0 0 20px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+button {
+  margin: 0;
+}
+
+.vertical_line, .comment_block:before, .comment:before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  border-left: 2px solid #30501c;
+  left: -20px;
+  top: -12px;
+  height: calc(100% + 22px);
+  width: 20px;
+}
+
+.comment {
+  width: calc(100% - 40px);
+  z-index: 1;
+  text-align: left;
+  position: relative;
+  margin-left: 40px;
+  box-shadow: 1px 1px 0px 0px #30501c;
+  display: flex;
+  flex-direction: column;
+}
+.comment.haveKids {
+  box-shadow: 3px 3px 0px 0px #30501c, 6px 6px 0px 0px #333, 9px 9px 0px 0px #30501c;
+}
+.comment h2 {
+  font-size: 1.1em;
+}
+.comment .comment_text {
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.0705882353);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.comment .comment_text * {
+  padding: 0;
+  margin: 0;
+  font-size: medium;
+}
+
+.comment_block {
+  position: relative;
+  margin-left: 40px;
+  width: calc(100% - 40px);
+}
+.comment_block:before {
+  left: -19px;
+}
+
+/*# sourceMappingURL=comment.css.map */

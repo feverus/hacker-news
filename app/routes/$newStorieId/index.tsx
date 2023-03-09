@@ -1,17 +1,12 @@
-import type { LoaderArgs } from "@remix-run/node"
-import { Link, Outlet, useLoaderData  } from "@remix-run/react"
+import { useEffect } from "react"
+import type { LoaderArgs  } from "@remix-run/node"
+import { useFetcher, useLoaderData  } from "@remix-run/react"
 import { getNewsItem } from "~/api"
-import { Comment } from "~/components/comment"
-
-import styles from "~/styles/comment.module.css"
-export function links() {
-	return [
-	  {
-      rel: "stylesheet",
-      href: styles,
-	  },
-	];
-}
+import Comment from "~/components/comment"
+import Layout from "~/components/newsLayout"
+import { setStore } from "store/setStore"
+import {observer} from "mobx-react"
+import { NewsItemBlock } from "~/components/newsList"
 
 export const loader = async ({params}: LoaderArgs) => {
   console.log('args', params)
@@ -24,24 +19,39 @@ export const loader = async ({params}: LoaderArgs) => {
     }
 }
 
-export default function NewStorie() {
-  const data = useLoaderData<typeof loader>();
+export default observer(function NewStorie() {
+  const data = useLoaderData<typeof loader>()
+  const fetcher = useFetcher()
+  
+  const kids = (typeof data !== 'string') ?
+    data.kids?.sort((a, b) => a - b) 
+    :
+    []
+
+  useEffect(() => {
+    console.log('forceRefresh')
+    if (typeof data !== 'string') fetcher.load('/'+data?.id)
+    setStore.setForceRefresh(false)
+  }, [setStore.forceRefresh])
+
   console.log('data', data)
 
+  if (typeof data == 'string') return (
+    <Layout autoUpdateChekbox = {false} backButton = {true}>
+      {data}
+    </Layout>
+  )
+
   return (
-    <div>
-      <h1>NewStorie</h1>
-
-      {(typeof data !== 'string') ?
-        <>
-          <h2>{data.title}</h2>
-          {data.kids.map(id => <Comment id={id} depth={0} key={id} />)}
-        </>
-        :
-        data
-      }
-
-
-    </div>
-  );
-}
+    <Layout autoUpdateChekbox = {false} backButton = {true}>     
+       {(data?.dead || data?.deleted) ?
+          'Ой! Новость удалена.'
+          :
+          <>
+            {NewsItemBlock(data)}
+            {kids?.map(id => <Comment id={id} depth={0} key={id} />)}
+          </>
+       }
+    </Layout>
+  )
+})
