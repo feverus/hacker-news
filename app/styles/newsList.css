@@ -49,5 +49,21 @@ a {
 .newsItem .cut:hover {
   color: #30501c;
 }
+.newsItem h1 {
+  display: inline;
+}
+.newsItem span {
+  font-size: small;
+  color: #ababab;
+}
+.newsItem .link {
+  padding: 0.7em 0;
+}
+
+@media (max-width: 800px) {
+  .newsItem .status :nth-child(2) {
+    flex: unset;
+  }
+}
 
 /*# sourceMappingURL=newsList.css.map */

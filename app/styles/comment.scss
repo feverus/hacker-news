@@ -24,7 +24,12 @@ button {
     margin-left: 40px;
     box-shadow: 1px 1px 0px 0px $acsentColor;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column; 
+    opacity: 0;
+    animation: showComment 2.5s forwards;  
+    &.delay {
+        animation-delay: 0.5s;
+    } 
     &.haveKids {
         box-shadow: 3px 3px 0px 0px $acsentColor,
         6px 6px 0px 0px $pagebgColor,
@@ -46,6 +51,10 @@ button {
             font-size: medium;
         }
     }
+    .comment_date {
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 
 .comment_block {
@@ -56,4 +65,9 @@ button {
         @extend .vertical_line;
         left: -19px;
     }
+}
+
+@keyframes showComment {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }

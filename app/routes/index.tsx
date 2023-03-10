@@ -3,7 +3,7 @@ import type { NewsItem } from "~/interfaces"
 import { useLoaderData } from "@remix-run/react"
 import { getNewsItems, getNewsList } from "~/api"
 import NewsList from "~/components/newsList"
-import Layout from "~/components/newsLayout"
+import Layout from "~/components/newsLayout/newsLayout"
 
 export const loader = async ({params}: LoaderArgs) => {
   let newsItems: NewsItem[] = []

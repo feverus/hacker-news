@@ -34,4 +34,17 @@ a {
             color: $acsentColor;
         }
     }
+    h1 {display: inline;}
+    span {
+        font-size: small;
+        color: $lightTextColor;
+    }
+    .link {padding: 0.7em 0;}
+}
+
+
+@media (max-width: 800px) {
+    .newsItem .status :nth-child(2) {
+        flex: unset;
+    }
 }

@@ -1,6 +1,7 @@
 @import './global.scss';
 
 header {
+  box-shadow: 0px 1px 10px 0px $pagebgColor;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -8,6 +9,7 @@ header {
   position: sticky;
   top: 0;
   height: 64px;
+  min-height: 64px;
   width: 100%;
   background-color: $itemBgColor;
   margin-bottom: 10px;
@@ -16,6 +18,7 @@ header {
   }
   >button, >div {
     margin: 0 0 0 20px;
+    opacity: 0;
   }
   button {
     padding: 0;
@@ -27,9 +30,11 @@ header {
       border-radius: 50%;
       padding: 2px;
       border: 2px solid $acsentColor;
-      path{ fill: $acsentColor; }
+      background: $linkColor;
+      transition: all 0.5s;
+      path{ fill: #fffff2; }
       &:hover {
-        path{ fill: $linkColor; }
+        background: $acsentColor;
       }
     }
   }

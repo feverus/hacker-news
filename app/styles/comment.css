@@ -32,9 +32,14 @@ button {
   box-shadow: 1px 1px 0px 0px #30501c;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  animation: showComment 2.5s forwards;
+}
+.comment.delay {
+  animation-delay: 0.5s;
 }
 .comment.haveKids {
-  box-shadow: 3px 3px 0px 0px #30501c, 6px 6px 0px 0px #333, 9px 9px 0px 0px #30501c;
+  box-shadow: 3px 3px 0px 0px #30501c, 6px 6px 0px 0px #1e1e1e, 9px 9px 0px 0px #30501c;
 }
 .comment h2 {
   font-size: 1.1em;
@@ -49,6 +54,10 @@ button {
   margin: 0;
   font-size: medium;
 }
+.comment .comment_date {
+  display: flex;
+  justify-content: flex-end;
+}
 
 .comment_block {
   position: relative;
@@ -57,6 +66,15 @@ button {
 }
 .comment_block:before {
   left: -19px;
+}
+
+@keyframes showComment {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=comment.css.map */

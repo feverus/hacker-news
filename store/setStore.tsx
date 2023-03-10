@@ -1,8 +1,7 @@
 import {makeAutoObservable, observable, action} from 'mobx'
-import { useStaticRendering } from "mobx-react"
+import { enableStaticRendering } from "mobx-react-lite"
 
-const isServer = typeof window === "undefined"
-useStaticRendering(isServer)
+enableStaticRendering(typeof window === "undefined")
 
 export class SetStore {
     autoRefresh:boolean = true

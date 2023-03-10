@@ -3,13 +3,12 @@ import type { LoaderArgs  } from "@remix-run/node"
 import { useFetcher, useLoaderData  } from "@remix-run/react"
 import { getNewsItem } from "~/api"
 import Comment from "~/components/comment"
-import Layout from "~/components/newsLayout"
+import Layout from "~/components/newsLayout/newsLayout"
 import { setStore } from "store/setStore"
 import {observer} from "mobx-react"
 import { NewsItemBlock } from "~/components/newsList"
 
 export const loader = async ({params}: LoaderArgs) => {
-  console.log('args', params)
   if (params.newStorieId)
     try {
       const res = await getNewsItem(Number(params.newStorieId))
@@ -29,12 +28,9 @@ export default observer(function NewStorie() {
     []
 
   useEffect(() => {
-    console.log('forceRefresh')
     if (typeof data !== 'string') fetcher.load('/'+data?.id)
     setStore.setForceRefresh(false)
   }, [setStore.forceRefresh])
-
-  console.log('data', data)
 
   if (typeof data == 'string') return (
     <Layout autoUpdateChekbox = {false} backButton = {true}>

@@ -4,9 +4,7 @@ import { setStore } from 'store/setStore'
 import { NewsItemBlock } from './newsItemBlock'
 
 export function NewsList(props: {newsItems: NewsItem[]}) {
-	const [state, api] = useNewsList(props.newsItems)
-	console.log(state)
-	console.log(setStore)
+	const [state] = useNewsList(props.newsItems)
 
 	return (
 		<>

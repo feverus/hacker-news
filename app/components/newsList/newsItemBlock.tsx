@@ -8,12 +8,12 @@ export function NewsItemBlock(newStorie: NewsItem, index: number = -1): JSX.Elem
 	const publishDate = dateStampToDate(newStorie.time)
 
 	const title = one? 
-		newStorie.title
+		<h1>{newStorie.title}</h1>
 		:
-		`${index} : ${newStorie.title}` 
+		<><span>{newStorie.id}</span> : <h1>{newStorie.title}</h1></>
 	
 	const link = one?	
-		<div>
+		<div className='link'>
 			<a href = {newStorie.url}
 				className='cut'>
 				{newStorie.url}
@@ -25,7 +25,7 @@ export function NewsItemBlock(newStorie: NewsItem, index: number = -1): JSX.Elem
 	const score = one?
 		''
 		:
-		`Рейтинг: ${newStorie.score}`
+		<><span>Рейтинг:</span> {newStorie.score}</>
 
 	const comments = (newStorie.descendants === 0)?
 		'Без комментариев'
@@ -34,7 +34,7 @@ export function NewsItemBlock(newStorie: NewsItem, index: number = -1): JSX.Elem
 
 	const content = <>
 		<div>
-			<h1>{title}</h1>
+			{title}
 		</div>
 		{link}
 		<div className='comments'>
@@ -42,8 +42,8 @@ export function NewsItemBlock(newStorie: NewsItem, index: number = -1): JSX.Elem
 		</div>
 		<div className='status'>
 			<div>{score}</div>
-			<div>Автор: {newStorie.by}</div>
-			<div>Дата публикации: {publishDate}</div>
+			<div><span>Автор:</span> {newStorie.by}</div>
+			<div><span>Дата публикации:</span> {publishDate}</div>
 		</div>
 	</>
 
