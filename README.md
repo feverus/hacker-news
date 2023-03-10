@@ -6,13 +6,19 @@
 docker run -dti -p 30000:80 --restart always --name hacker-news feverus/hacker-news
 
 ## Перед запуском на сервере прописать проброс порта, на котором будет висеть контейнер:
+настройке сер
 sudo nano /etc/apache2/sites-available/{ваш_домен}.conf
+
 __Добавить__
+
 ProxyPreserveHost On
+
 ProxyPass /hacker-news/ http://127.0.0.1:30000/
+
 ProxyPassReverse /hacker-news/ http://127.0.0.1:30000/
 
 И:
+
 sudo systemctl restart apache2
 
 <details>
