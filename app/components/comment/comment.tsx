@@ -1,7 +1,7 @@
 import useComment from './comment.service'
 import { NewsItem } from '~/interfaces'
 import { Link } from "@remix-run/react"
-import { setStore } from 'store/setStore'
+import { setStore } from '~/store/setStore'
 import { dateStampToDate } from '~/service/textFunction'
 
 export function Comment(props: {id: number, depth: number}) {

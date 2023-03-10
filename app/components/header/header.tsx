@@ -1,4 +1,4 @@
-import { setStore } from 'store/setStore'
+import { setStore } from '~/store/setStore'
 import { ReactSVG } from 'react-svg';
 import { useNavigate } from 'react-router-dom'
 

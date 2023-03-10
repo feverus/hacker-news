@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { UseNewsList } from "./newsList.props"
 import { getNewsItems, getNewsList } from "~/api"
-import { setStore } from 'store/setStore'
+import { setStore } from '~/store/setStore'
 
 const useNewsList:UseNewsList = (newsItems) => {
 	const autoUpdateInterval = 60000

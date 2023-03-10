@@ -1,5 +1,5 @@
 {
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "app/components/transition/transition.jsx", "app/components/transition/context/TransitionContext.jsx"],
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "app/components/transition/transition.jsx", "app/components/transition/context/TransitionContext.jsx", "app/entry.server.tsx"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
     "isolatedModules": true,

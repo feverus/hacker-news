@@ -4,7 +4,7 @@ import { useFetcher, useLoaderData  } from "@remix-run/react"
 import { getNewsItem } from "~/api"
 import Comment from "~/components/comment"
 import Layout from "~/components/newsLayout/newsLayout"
-import { setStore } from "store/setStore"
+import { setStore } from "~/store/setStore"
 import {observer} from "mobx-react"
 import { NewsItemBlock } from "~/components/newsList"
 
