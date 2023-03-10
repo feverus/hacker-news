@@ -3,7 +3,7 @@
 Подробнее под спойлером ниже.
 
 # Запуск докер-контейнера
-docker run -dti -p 30000:80 --restart always --name hacker-news feverus/hacker-news
+docker run -dti -p 3000:3000 --restart always --name hacker-news feverus/hacker-news
 
 ## Перед запуском на сервере прописать проброс порта, на котором будет висеть контейнер:
 sudo nano /etc/apache2/sites-available/{ваш_домен}.conf
