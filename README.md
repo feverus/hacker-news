@@ -1,25 +1,31 @@
 # Интерфейс для сайта Hacker News (https://news.ycombinator.com/news)
 Запуск на локалхосте: npm run dev
-Подробнее под спойлером ниже.
+Подробнее под спойлером в самом низу.
 
 # Запуск докер-контейнера
 docker run -dti -p 3000:3000 --restart always --name hacker-news feverus/hacker-news
 
 ## Перед запуском на сервере прописать проброс порта, на котором будет висеть контейнер:
-настройке сер
+
 sudo nano /etc/apache2/sites-available/{ваш_домен}.conf
 
 __Добавить__
 
 ProxyPreserveHost On
 
-ProxyPass /hacker-news/ http://127.0.0.1:30000/
+ProxyPass / http://127.0.0.1:3000/
 
-ProxyPassReverse /hacker-news/ http://127.0.0.1:30000/
+ProxyPassReverse / http://127.0.0.1:3000/
 
-И:
+__И выполнить:__
 
 sudo systemctl restart apache2
+
+## Заметки
+
+- Remix.run не работает в некорневой директории (если вы смогли решить эту проблему, пожалуйста сообщите мне)
+- Также очень вероятно, что Remix.run работает только на 3000 порту, поэтому докер нужно запускать на нём.
+- Есть проблема гидратации, связанная с отличием даты на сервере и у клиента в браузере. Для решения нужно избавиться от генерации дат на статике, оборачивая присвоение в useEffect (пример в \app\components\newsList\newsItemBlock.tsx).
 
 <details>
   <summary>Стандартное readme от Remix.run</summary>

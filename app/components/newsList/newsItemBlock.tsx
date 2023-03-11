@@ -1,11 +1,17 @@
 import { NewsItem } from '~/interfaces'
 import { Link } from "@remix-run/react"
 import { commentsOfNum, dateStampToDate } from '~/service/textFunction'
+import { useState, useEffect } from 'react'
 
 export function NewsItemBlock(newStorie: NewsItem, index: number = -1): JSX.Element {
-	const one = index === -1
+	const [publishDateSafe, setPublishDateSafe] = useState('Недавно')
 
-	const publishDate = dateStampToDate(newStorie.time)
+	useEffect(() => {
+		const publishDate = dateStampToDate(newStorie.time)
+		setPublishDateSafe(publishDate)
+	}, [])
+	
+	const one = index === -1	
 
 	const title = one? 
 		<h1>{newStorie.title}</h1>
@@ -43,7 +49,7 @@ export function NewsItemBlock(newStorie: NewsItem, index: number = -1): JSX.Elem
 		<div className='status'>
 			<div>{score}</div>
 			<div><span>Автор:</span> {newStorie.by}</div>
-			<div><span>Дата публикации:</span> {publishDate}</div>
+			<div><span>Дата публикации:</span> {publishDateSafe}</div>
 		</div>
 	</>
 
