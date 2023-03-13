@@ -33,10 +33,10 @@ button {
   display: flex;
   flex-direction: column;
   opacity: 0;
-  animation: showComment 2.5s forwards;
+  animation: showComment 0.3s forwards;
 }
 .comment.delay {
-  animation-delay: 0.5s;
+  animation-delay: 0.3s;
 }
 .comment.haveKids {
   box-shadow: 3px 3px 0px 0px #30501c, 6px 6px 0px 0px #1e1e1e, 9px 9px 0px 0px #30501c;

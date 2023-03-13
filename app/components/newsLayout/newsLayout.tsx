@@ -11,17 +11,17 @@ function sleep(ms:number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export default function Layout(props: P) {
-  const mainRef = useAnimations();
+export function NewsLayout(props: P) {
+  const {mainRef, clearPage} = useAnimations();
 
-	return (    
+	return (  		
 				<div className="wrapper" ref={mainRef}>
 					<Header 			
 						autoUpdateChekbox = {props.autoUpdateChekbox}
 						backButton = {props.backButton}
 					/>	
 					<main>			
-						{props.children}			
+						{props.children}
 					</main>
 				</div>
 	)

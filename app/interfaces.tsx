@@ -11,6 +11,21 @@ export type NewsItem = {
 	"deleted"?: boolean,
 	"dead"?: boolean,	
 }
+
+export const emptyNewsItem = {
+	"by": '',
+	"descendants": 0,
+	"id": 0,
+	"kids": [],
+	"score": 0,
+	"time": 0,
+	"title": '',
+	"type": '',
+	"url": '',
+	"deleted": false,
+	"dead": false,	
+}
+
 export type CommentItem = {
 	"by": string,
 	"id": number,

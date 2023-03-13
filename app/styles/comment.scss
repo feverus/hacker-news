@@ -26,9 +26,9 @@ button {
     display: flex;
     flex-direction: column; 
     opacity: 0;
-    animation: showComment 2.5s forwards;  
+    animation: showComment 0.3s forwards;  
     &.delay {
-        animation-delay: 0.5s;
+        animation-delay: 0.3s;
     } 
     &.haveKids {
         box-shadow: 3px 3px 0px 0px $acsentColor,

@@ -12,6 +12,9 @@ a {
   text-decoration: none;
   color: #111;
 }
+a.newsItem {
+  cursor: pointer;
+}
 
 .newsItem {
   z-index: 2;

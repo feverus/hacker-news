@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useLayoutEffect } from 'react'
 import { UseComment } from "./comment.props"
 import { getCommmentItem } from "~/api"
 import { CommentItem } from '~/interfaces'
@@ -6,6 +6,7 @@ import { CommentItem } from '~/interfaces'
 const useComment:UseComment = (id: number) => { 
 	const [comment, setComment] = useState<CommentItem>()
 	const [showKids, setShowKids] = useState(false)
+	const commentRef = useRef<HTMLDivElement | null>(null)
 	
 	const getComment = async(id: number) => {
 		return await getCommmentItem(id)

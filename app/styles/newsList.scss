@@ -3,7 +3,11 @@
 a {
     text-decoration: none;
     color: $textColor;
+    &.newsItem{
+        cursor: pointer;
+    }
 }
+
 .newsItem {
     @extend .item;  
     z-index: 2; 

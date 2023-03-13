@@ -6,6 +6,7 @@ enableStaticRendering(typeof window === "undefined")
 export class SetStore {
     autoRefresh:boolean = true
     forceRefresh:boolean = false
+    forceReverce:boolean = false
 
     constructor() {
         makeAutoObservable(this, {
@@ -21,6 +22,9 @@ export class SetStore {
     }
     setForceRefresh(mode: boolean) {
         this.forceRefresh = mode
+    }
+    setForceReverce(mode: boolean) {
+        this.forceReverce = mode
     }
 }
 

@@ -7,6 +7,11 @@ type P = {autoUpdateChekbox: boolean, backButton: boolean}
 export function Header(props: P ) {
 	const navigate = useNavigate()
 
+	const goBack = () => {
+		setStore.setForceReverce(true)
+		navigate(-1)
+	}
+
 	const autoRefreshText = (setStore.autoRefresh) ?
 		'Выкл. автообновление'
 		:
@@ -16,7 +21,7 @@ export function Header(props: P ) {
 		<header>
 			{props.backButton && 
 				<button
-					onClick={() => navigate(-1)}
+					onClick={goBack}
 					className='back'
 				>
 				<ReactSVG src={'icons/arrow_back_FILL0_wght400_GRAD0_opsz48.svg'} />				

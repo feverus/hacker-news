@@ -3,7 +3,7 @@ import type { NewsItem } from "~/interfaces"
 import { useLoaderData } from "@remix-run/react"
 import { getNewsItems, getNewsList } from "~/api"
 import NewsList from "~/components/newsList"
-import Layout from "~/components/newsLayout/newsLayout"
+import NewsLayout from "~/components/newsLayout"
 
 export const loader = async ({params}: LoaderArgs) => {
   let newsItems: NewsItem[] = []
@@ -24,10 +24,10 @@ export default function Index() {
   const newsItems = useLoaderData<typeof loader>()
 
   return (
-    <Layout autoUpdateChekbox = {true} backButton = {false}>
+    <NewsLayout autoUpdateChekbox = {true} backButton = {false}>
       {((typeof newsItems !== 'string') && (newsItems !== null)) ?
         <NewsList newsItems={newsItems} />
       : newsItems} 
-    </Layout>    
+    </NewsLayout>    
   )
 }

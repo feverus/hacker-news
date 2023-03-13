@@ -1,15 +1,29 @@
-import { NewsItem } from '~/interfaces'
-import { Link } from "@remix-run/react"
 import { commentsOfNum, dateStampToDate } from '~/service/textFunction'
 import { useState, useEffect } from 'react'
+import { useNavigate  } from 'react-router-dom'
+import { UseNewsItemBlock } from './newsItemBlock.props'
+import { setStore } from '~/store/setStore'
+import { emptyNewsItem } from '~/interfaces'
 
-export function NewsItemBlock(newStorie: NewsItem, index: number = -1): JSX.Element {
+export const useNewsItemBlock: UseNewsItemBlock = (newStorie, index) => {
 	const [publishDateSafe, setPublishDateSafe] = useState('Недавно')
+	const navigate = useNavigate()
+
+	if (newStorie === undefined) newStorie = emptyNewsItem
+
+	const goTo = (page: string) => {
+		setStore.setForceReverce(true)
+		navigate(page)
+	}
 
 	useEffect(() => {
 		const publishDate = dateStampToDate(newStorie.time)
 		setPublishDateSafe(publishDate)
 	}, [])
+
+	useEffect(() => {
+		window.onpopstate = ()=> {setStore.setForceReverce(true)}
+	})
 	
 	const one = index === -1	
 
@@ -53,21 +67,16 @@ export function NewsItemBlock(newStorie: NewsItem, index: number = -1): JSX.Elem
 		</div>
 	</>
 
-	if (one) return (
-		<div className='newsItem'>
-			{content}				
-		</div>
-	)
+  const state = {
+    one,
+    content
+  }
+  const api = {
+    goTo,
+  }
 
-	return (
-		<Link
-			to={newStorie.id.toString()}
-			key={newStorie.id}
-			className='newsItem'
-		>
-			{content}				
-		</Link>
+  return (
+		[state, api]
 	)
-
 
 }

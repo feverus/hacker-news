@@ -28,6 +28,7 @@ COPY --from=build /app/package-lock.json ./
 COPY --from=build /app/remix.env.d.ts ./
 COPY --from=build /app/remix.config.js ./
 COPY --from=build /app/.eslintrc.js ./
+COPY /public/favicon.ico /app/public/favicon.ico
 EXPOSE 3000
 # ENTRYPOINT npm run start
 CMD ["npm", "run", "start"]

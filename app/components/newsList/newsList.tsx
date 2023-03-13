@@ -1,16 +1,15 @@
 import useNewsList from './newsList.service'
 import { NewsItem } from '~/interfaces'
-import { setStore } from '~/store/setStore'
-import { NewsItemBlock } from './newsItemBlock'
+import NewsItemBlock from '~/components/newsItemBlock'
 
 export function NewsList(props: {newsItems: NewsItem[]}) {
 	const [state] = useNewsList(props.newsItems)
 
 	return (
 		<>
-		{state.newsItems.map((newstorie, index) => { 
-			return newstorie &&  
-				NewsItemBlock(newstorie, index)
+		{state.newsItems.map((newStorie, index) => { 
+			return newStorie &&  
+				<NewsItemBlock newStorie={newStorie} index={index} key={newStorie.id}/>
 			}
 		)}
 		</>

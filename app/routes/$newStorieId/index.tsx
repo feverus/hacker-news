@@ -1,12 +1,12 @@
 import { useEffect } from "react"
 import type { LoaderArgs  } from "@remix-run/node"
-import { useFetcher, useLoaderData  } from "@remix-run/react"
+import { useFetcher, useLoaderData } from "@remix-run/react"
 import { getNewsItem } from "~/api"
 import Comment from "~/components/comment"
-import Layout from "~/components/newsLayout/newsLayout"
+import NewsLayout from "~/components/newsLayout"
 import { setStore } from "~/store/setStore"
 import {observer} from "mobx-react"
-import { NewsItemBlock } from "~/components/newsList"
+import NewsItemBlock from '~/components/newsItemBlock'
 
 export const loader = async ({params}: LoaderArgs) => {
   if (params.newStorieId)
@@ -33,21 +33,21 @@ export default observer(function NewStorie() {
   }, [setStore.forceRefresh])
 
   if (typeof data == 'string') return (
-    <Layout autoUpdateChekbox = {false} backButton = {true}>
+    <NewsLayout autoUpdateChekbox = {false} backButton = {true}>
       {data}
-    </Layout>
+    </NewsLayout>
   )
 
   return (
-    <Layout autoUpdateChekbox = {false} backButton = {true}>     
+    <NewsLayout autoUpdateChekbox = {false} backButton = {true}>     
        {(data?.dead || data?.deleted) ?
           'Ой! Новость удалена.'
           :
           <>
-            {NewsItemBlock(data)}
+            <NewsItemBlock newStorie={data} index={-1} key={data.id}/>
             {kids?.map(id => <Comment id={id} depth={0} key={id} />)}
           </>
        }
-    </Layout>
+    </NewsLayout>
   )
 })
