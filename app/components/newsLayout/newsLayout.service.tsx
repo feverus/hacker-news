@@ -30,6 +30,12 @@ const useAnimations = () => {
 		{ autoAlpha: 1, yPercent: 0, duration: 0.15 }
 	]
 
+	const clearPage = () => {
+		console.log('clearPage')
+
+		setStore.setForceReverce(true)
+	}
+
   useEffect(() => {		
     const ctx = gsap.context((self) => {	
 			if ((self !== undefined) && (self.selector !== undefined)) {		
@@ -59,7 +65,6 @@ const useAnimations = () => {
   }, [])
 
 	useEffect(() => {
-		console.log(setStore.forceReverce)
 		
 		if (setStore.forceReverce) {
 			const ctx = gsap.context((self) => {			
@@ -97,12 +102,9 @@ const useAnimations = () => {
 		}		
 	}, [setStore.forceReverce])
 	
-
-	const clearPage = () => {
-		console.log('clearPage')
-
-		setStore.setForceReverce(true)
-	}
+	useEffect(() => {
+		window.onpopstate = () => { setStore.setForceReverce(true) }
+	})
 
   return {
 		mainRef: mainRef, 

@@ -21,10 +21,6 @@ export const useNewsItemBlock: UseNewsItemBlock = (newStorie, index) => {
 		setPublishDateSafe(publishDate)
 	}, [])
 
-	useEffect(() => {
-		window.onpopstate = ()=> {setStore.setForceReverce(true)}
-	})
-	
 	const one = index === -1	
 
 	const title = one? 

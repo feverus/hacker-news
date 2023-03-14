@@ -22,6 +22,7 @@ a.newsItem {
   display: flex;
   flex-direction: column;
   width: min(100%, 800px);
+  opacity: 0;
 }
 .newsItem .comments {
   font-size: small;
